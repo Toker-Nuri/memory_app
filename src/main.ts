@@ -1,17 +1,10 @@
 import './styles/style.scss';
 
-init();
-
 function init() {
-    const fieldRef = document.getElementById("field");
-    if (fieldRef) {
-        fieldRef.addEventListener("click", e => {
-            const card = (e.target as HTMLElement).closest(".card") as HTMLButtonElement
-            if (card) {
-                card.classList.toggle("is-flipped");
-            }
-
-        })
-    }
+    console.log("Memory App Initialized");
+    // Show home view for now
+    const homeView = document.getElementById("view-home");
+    if (homeView) homeView.classList.remove("d-none");
 }
 
+init();

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
@@ -8,15 +8,24 @@
 </head>
 
 <body>
-    <section id="field">
-        <button class="card">
-            <div class="card__inner">
-                <div class="card__face"></div>
-                <div class="card__face card__face--back"></div>
-            </div>
-        </button>
-    </section>
-    <script type="module" src="src/main.ts"></script>
+    <div id="app">
+
+        <section id="view-home" class="view d-none">
+        </section>
+
+        <section id="view-settings" class="view d-none">
+        </section>
+
+        <section id="view-game" class="view d-none">
+        </section>
+
+        <section id="view-result" class="view d-none">
+        </section>
+
+        <div id="modal-container" class="d-none"></div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
 </body>
 
 </html>
