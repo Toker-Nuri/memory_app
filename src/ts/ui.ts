@@ -158,8 +158,8 @@ export function updateCardUI(index: number) {
 }
 
 export function updateScoreUI() {
-    let p1Icon = State.theme === "coding" ? "/public/assets/system-img/label (1).png" : "/public/assets/system-img/Player (1).png";
-    let p2Icon = State.theme === "coding" ? "/public/assets/system-img/label.png" : "/public/assets/system-img/Player.png";
+    let p1Icon = State.theme === "coding" ? "./assets/system-img/label (1).png" : "./assets/system-img/Player (1).png";
+    let p2Icon = State.theme === "coding" ? "./assets/system-img/label.png" : "./assets/system-img/Player.png";
 
     let icon1 = document.getElementById("score-icon-blue") as HTMLImageElement;
     if (icon1) icon1.src = p1Icon;
@@ -185,8 +185,8 @@ export function endGame() {
 }
 
 export function showGameOverScreen() {
-    let p1Icon = State.theme === "coding" ? "/public/assets/system-img/label (1).png" : "/public/assets/system-img/Player (1).png";
-    let p2Icon = State.theme === "coding" ? "/public/assets/system-img/label.png" : "/public/assets/system-img/Player.png";
+    let p1Icon = State.theme === "coding" ? "./assets/system-img/label (1).png" : "./assets/system-img/Player (1).png";
+    let p2Icon = State.theme === "coding" ? "./assets/system-img/label.png" : "./assets/system-img/Player.png";
 
     let icon1 = document.getElementById("gameover-icon-blue") as HTMLImageElement;
     if (icon1) icon1.src = p1Icon;
@@ -243,8 +243,8 @@ export function setupWinnerAssets(
 ) {
     if (State.theme === "coding") {
         icon.src = blueWins
-            ? "/public/assets/system-img/label (1).png"
-            : "/public/assets/system-img/label.png";
+            ? "./assets/system-img/label (1).png"
+            : "./assets/system-img/label.png";
         icon.classList.remove("d-none");
         icon.className = "winner-player-icon " + (blueWins ? "icon-blue-big" : "icon-orange-big");
         trophy.classList.add("d-none");

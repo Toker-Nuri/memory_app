@@ -1,14 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory App</title>
-  <script type="module" crossorigin src="/assets/index-DTxDuhfi.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CfFJ6zxp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/index-CR67BVPL.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BRawB1II.css">
 </head>
+
 <body>
-    <h1 id="h1_memory"></h1>
-    <img src="./public/memory_pink/card_pink.png" alt="">
+    <div id="landscape-blocker">
+        <div class="landscape-content">
+            <img src="./assets/system-img/ROTATE_icon.png" alt="Rotate screen">
+            <p>Bitte Bildschirm auf Hochformat drehen</p>
+        </div>
+    </div>
+    <div id="app">
+
+        <section id="view-home" class="view">
+            <img src="./assets/system-img/stadia_controller_big.png" class="home-bg-icon" alt="">
+            <div class="home-content">
+                <p class="home-subtitle">It's play time.</p>
+                <h1 class="home-title">Ready to play?</h1>
+                <button id="btn-play" class="btn-yellow">
+                    <img src="./assets/system-img/stadia_controller.png" class="btn-icon"> Play &rarr;
+                </button>
+            </div>
+        </section>
+
+        <section id="view-settings" class="view d-none">
+            <div class="settings-wrapper">
+                <div class="settings-main">
+                    <div class="settings-left">
+                        <div class="settings-header">
+                            <h2>Settings</h2>
+                            <div class="yellow-underline"></div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3><img src="./assets/system-img/palette.png" class="icon-magenta"> Game themes</h3>
+                            <label class="custom-radio">
+                                <input type="radio" name="theme" value="coding" checked
+                                    onchange="window.updatePreview()">
+                                <span class="radio-mark"></span> Code vibes theme
+                                <div class="yellow-arrow" id="arrow-coding"></div>
+                            </label>
+                            <label class="custom-radio">
+                                <input type="radio" name="theme" value="gaming" onchange="window.updatePreview()">
+                                <span class="radio-mark"></span> Gaming theme
+                                <div class="yellow-arrow d-none" id="arrow-gaming"></div>
+                            </label>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3><img src="./assets/system-img/chess_pawn.png" class="icon-turquoise"> Choose
+                                player
+                            </h3>
+                            <label class="custom-radio">
+                                <input type="radio" name="player" value="blue" checked>
+                                <span class="radio-mark"></span> Blue
+                            </label>
+                            <label class="custom-radio">
+                                <input type="radio" name="player" value="orange">
+                                <span class="radio-mark"></span> Orange
+                            </label>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3><img src="./assets/system-img/style.png" class="icon-blue"> Board size</h3>
+                            <label class="custom-radio">
+                                <input type="radio" name="grid" value="16" checked>
+                                <span class="radio-mark"></span> 16 cards
+                            </label>
+                            <label class="custom-radio">
+                                <input type="radio" name="grid" value="24">
+                                <span class="radio-mark"></span> 24 cards
+                            </label>
+                            <label class="custom-radio">
+                                <input type="radio" name="grid" value="36">
+                                <span class="radio-mark"></span> 36 cards
+                            </label>
+                        </div>
+                    </div>
+                    <div class="settings-right">
+                        <img id="theme-preview" src="./assets/memory_turquoise/Frame_türkis.png"
+                            alt="Theme Preview">
+                    </div>
+                </div>
+
+                <div class="settings-footer">
+                    <div class="breadcrumbs">
+                        <span id="bc-theme">Code vibes theme</span> <span class="slash"></span>
+                        <span id="bc-player">Blue Player</span> <span class="slash"></span>
+                        <span id="bc-grid">Board-16 Cards</span>
+                    </div>
+                    <button id="btn-start" class="btn-yellow">
+                        <img src="./assets/system-img/move_item.png" class="btn-icon-start"> Start
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-game" class="view d-none theme-coding">
+            <div class="game-header">
+                <div class="score-board-wrapper">
+                    <div class="score-tag tag-blue">
+                        <img id="score-icon-blue" src="./assets/system-img/Player.png"> Blue
+                        <span id="score-p1">0</span>
+                    </div>
+                    <div class="score-tag tag-orange">
+                        <img id="score-icon-orange" src="./assets/system-img/Player (1).png"> Orange
+                        <span id="score-p2">0</span>
+                    </div>
+                </div>
+
+                <div class="current-player-ui">
+                    Current player: <img id="turn-icon" src="./assets/system-img/Player.png">
+                </div>
+
+                <button id="btn-exit" class="btn-exit-game">
+                    <img src="./assets/system-img/move_item.png" class="exit-icon"> Exit game
+                </button>
+            </div>
+
+            <div class="game-board-container" id="board-container">
+                <div id="game-board"></div>
+            </div>
+        </section>
+
+        <section id="view-gameover" class="view d-none theme-coding">
+            <div class="gameover-container">
+                <h1 id="gameover-title" class="gameover-title">Game over</h1>
+                <p class="gameover-score-label">Final score</p>
+                <div class="score-board-wrapper gameover-scores">
+                    <div class="score-tag tag-blue">
+                        <img id="gameover-icon-blue" src="./assets/system-img/Player.png">
+                        <span id="gameover-score-p1">0</span>
+                    </div>
+                    <div class="score-tag tag-orange">
+                        <img id="gameover-icon-orange" src="./assets/system-img/Player (1).png">
+                        <span id="gameover-score-p2">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-winner" class="view d-none theme-coding">
+            <img id="winner-confetti" src="./assets/system-img/Confetti.png" class="confetti d-none"
+                alt="Confetti">
+            <div class="winner-container">
+                <h2 class="winner-subtitle">The winner is</h2>
+                <h1 id="winner-title" class="winner-title">Blue Player</h1>
+
+                <img id="winner-icon" src="./assets/system-img/Player.png" class="winner-player-icon"
+                    alt="Winner">
+                <img id="winner-trophy" src="./assets/system-img/pockal 1.png" class="trophy d-none"
+                    alt="Trophy">
+
+                <div class="result-actions">
+                    <button class="btn-result-home" id="btn-result-home">Back to start</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="modal-container" class="d-none">
+            <div class="modal">
+                <h2>Are you sure you want to quit<br>the game?</h2>
+                <div class="modal-buttons">
+                    <button id="btn-resume" class="btn-modal-back">Back to game</button>
+                    <button id="btn-quit" class="btn-modal-exit">Exit game</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.updatePreview = function () {
+            let t = document.querySelector('input[name="theme"]:checked').value;
+            let themePreview = document.getElementById("theme-preview");
+            let arrowCoding = document.getElementById("arrow-coding");
+            let arrowGaming = document.getElementById("arrow-gaming");
+
+            if (t === "coding") {
+                themePreview.src = "./assets/memory_turquoise/Frame_türkis.png";
+                arrowCoding.classList.remove("d-none");
+                arrowGaming.classList.add("d-none");
+            } else {
+                themePreview.src = "./assets/memory_pink/Frame_pink.png";
+                arrowCoding.classList.add("d-none");
+                arrowGaming.classList.remove("d-none");
+            }
+        };
+    </script>
 </body>
+
 </html>

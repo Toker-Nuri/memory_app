@@ -35,7 +35,7 @@ export function createCardObjects(images: string[]) {
     for (let i = 0; i < images.length; i++) {
         State.cards.push({
             id: i,
-            image: `/public/assets/${State.theme === 'coding' ? 'memory_turquoise' : 'memory_pink'}/${images[i]}`,
+            image: `./assets/${State.theme === 'coding' ? 'memory_turquoise' : 'memory_pink'}/${images[i]}`,
             isFlipped: false,
             isMatched: false
         });
