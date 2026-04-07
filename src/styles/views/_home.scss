@@ -1,0 +1,92 @@
+/* ===== Home View ===== */
+#view-home {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2b2e35;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.home-bg-icon {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 500px;
+  opacity: 0.5;
+  transform: rotate(0deg);
+  pointer-events: none;
+}
+
+.home-content {
+  margin: auto;
+  text-align: left;
+  z-index: 10;
+  padding: 0 60px;
+}
+
+.home-subtitle {
+  font-size: 2.2rem;
+  color: #ccc;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.home-title {
+  font-size: 4.0rem;
+  font-weight: 800;
+  margin-bottom: 32px;
+  color: #fff;
+}
+
+/* ===== Play Button ===== */
+.btn-yellow {
+  background-color: var(--color-primary-yellow);
+  color: #111;
+  padding: 12px 32px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  &:hover {
+    background-color: var(--color-primary-yellow-hover);
+  }
+}
+
+.btn-yellow .btn-icon {
+  width: 24px;
+  filter: invert(1);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .home-content {
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .home-title {
+    font-size: 2.5rem;
+  }
+
+  .home-bg-icon {
+    width: 350px;
+    bottom: -60px;
+    left: -60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .home-subtitle {
+    font-size: 1rem;
+  }
+}

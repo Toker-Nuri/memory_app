@@ -1,0 +1,109 @@
+/* ===== Modal Overlay ===== */
+#modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  color: #111;
+  padding: 48px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 420px;
+  width: 90%;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 32px;
+    line-height: 1.4;
+  }
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* ===== Modal Buttons (fallback turquoise) ===== */
+.btn-modal-back {
+  background-color: #5ee8c9;
+  color: white;
+  padding: 12px 32px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border: none;
+
+  &:hover {
+    background-color: #4dd4b5;
+  }
+}
+
+.btn-modal-exit {
+  background-color: transparent;
+  color: #5ee8c9;
+  border: 2px solid #5ee8c9;
+  padding: 10px 32px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 0.95rem;
+
+  &:hover {
+    background-color: rgba(94, 232, 201, 0.1);
+  }
+}
+
+/* ===== Pink Theme Modal ===== */
+.theme-pink ~ #modal-container .btn-modal-back,
+body:has(.theme-pink:not(.d-none)) #modal-container .btn-modal-back {
+  background-color: #e91e63;
+
+  &:hover {
+    background-color: #d81b60;
+  }
+}
+
+.theme-pink ~ #modal-container .btn-modal-exit,
+body:has(.theme-pink:not(.d-none)) #modal-container .btn-modal-exit {
+  color: #e91e63;
+  border-color: #e91e63;
+
+  &:hover {
+    background-color: rgba(233, 30, 99, 0.1);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .modal {
+    padding: 32px 24px;
+
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-modal-back,
+  .btn-modal-exit {
+    width: 100%;
+  }
+}

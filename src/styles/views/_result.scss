@@ -1,0 +1,199 @@
+#view-gameover {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#view-gameover.theme-coding {
+    background-color: #303131;
+}
+
+#view-gameover.theme-pink {
+    background-color: #294F60;
+}
+
+.gameover-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.gameover-title {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.gameover-title-coding {
+    color: #5ee8c9;
+    font-family: 'Outfit', sans-serif;
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+}
+
+.gameover-title-pink {
+    color: #e91e63;
+    font-family: 'Press Start 2P', system-ui;
+    font-size: 3.5rem;
+    letter-spacing: 4px;
+}
+
+.gameover-score-label {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.gameover-scores {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+
+#view-winner {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#view-winner.theme-coding {
+    background-color: #303131;
+}
+
+#view-winner.theme-pink {
+    background-color: #294F60;
+}
+
+.winner-container {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.winner-subtitle {
+    font-size: 2.2rem;
+    color: white;
+    font-weight: 500;
+}
+
+.winner-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.winner-title-coding {
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.winner-title-pink {
+    font-family: 'Outfit', sans-serif;
+    font-style: italic;
+}
+
+.winner-player-icon {
+    width: 120px;
+    height: 120px;
+    margin: 16px auto;
+}
+
+.icon-blue-big {
+    filter: brightness(0) saturate(100%) invert(52%) sepia(83%) saturate(1456%) hue-rotate(170deg) brightness(101%) contrast(93%);
+}
+
+.icon-orange-big {
+    filter: brightness(0) saturate(100%) invert(46%) sepia(93%) saturate(2026%) hue-rotate(4deg) brightness(102%) contrast(105%);
+}
+
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.trophy {
+    width: 180px;
+    margin: 20px auto;
+    display: block;
+}
+
+.result-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.btn-result-home {
+    background: transparent;
+    padding: 10px 32px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: white;
+}
+
+.btn-result-coding {
+    border: 1px solid #5ee8c9;
+
+    &:hover {
+        background: rgba(94, 232, 201, 0.1);
+    }
+}
+
+.btn-result-pink {
+    border: 1px solid #e91e63;
+    color: white;
+
+    &:hover {
+        background: rgba(233, 30, 99, 0.1);
+    }
+}
+
+.score-board {
+    display: flex;
+    gap: 12px;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    .gameover-title {
+        font-size: 3rem;
+    }
+
+    .gameover-title-pink {
+        font-size: 2rem;
+    }
+
+    .winner-title {
+        font-size: 2rem;
+    }
+
+    .trophy {
+        width: 120px;
+    }
+
+    .winner-player-icon {
+        width: 80px;
+        height: 80px;
+    }
+}
